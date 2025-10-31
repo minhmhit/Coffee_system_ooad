@@ -4,8 +4,16 @@ import { UserModule } from "./user/user.module";
 import { RoleModule } from "./role/role.module";
 import { ProductModule } from "./product/product.module";
 import { VariantModule } from "./variant/variant.module";
+import { OrderModule } from "./order/order.module";
 
 @Module({
-  imports: [PrismaModule, UserModule, RoleModule, ProductModule, VariantModule],
+  imports: [
+    PrismaModule,
+    UserModule,
+    RoleModule,
+    ProductModule,
+    VariantModule,
+    OrderModule,
+  ],
 })
 export class AppModule {}

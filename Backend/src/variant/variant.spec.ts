@@ -40,7 +40,9 @@ describe("VariantService", () => {
 
     const result = await service.createVariant(variantData);
     expect(result.name).toBe(variantData.name);
-    expect(mockPrismaService.variant.create).toHaveBeenCalledWith({ data: variantData });
+    expect(mockPrismaService.variant.create).toHaveBeenCalledWith({
+      data: variantData,
+    });
   });
 
   it("should find all variants", async () => {
