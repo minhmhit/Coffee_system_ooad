@@ -35,3 +35,55 @@ model Role {
 
   @@map("roles")
 }
+
+model Product {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String
+  price       Decimal
+  imageUrl    String?
+  categoryId  Int
+  supplierId  Int
+  category    Category  @relation(fields: [categoryId], references: [id])
+  supplier    Supplier  @relation(fields: [supplierId], references: [id])
+  variants    Variant[]
+  inventory   Inventory?
+
+  @@map("products")
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
+
+  @@map("categories")
+}
+
+model Supplier {
+  id       Int       @id @default(autoincrement())
+  name     String
+  contact  String?
+  products Product[]
+
+  @@map("suppliers")
+}
+
+model Variant {
+  id        Int     @id @default(autoincrement())
+  name      String  // e.g., size, color
+  value     String  // e.g., Large, Red
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("variants")
+}
+
+model Inventory {
+  id        Int     @id @default(autoincrement())
+  quantity  Int     @default(0)
+  productId Int     @unique
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("inventories")
+}
