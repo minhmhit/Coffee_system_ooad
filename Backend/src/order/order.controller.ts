@@ -19,7 +19,12 @@ export class OrderController {
     @Body()
     data: {
       userId: number;
-      orderItems: { productId: number; quantity: number; price: number }[];
+      orderItems: {
+        productId: number;
+        quantity: number;
+        unitPrice: number;
+        variantId?: number;
+      }[];
     }
   ) {
     return this.orderService.createOrder(data);

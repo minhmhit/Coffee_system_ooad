@@ -34,8 +34,8 @@ describe("OrderService", () => {
     const orderData = {
       userId: 1,
       orderItems: [
-        { productId: 1, quantity: 2, price: 10.5 },
-        { productId: 2, quantity: 1, price: 5.0 },
+        { productId: 1, quantity: 2, unitPrice: 10.5 },
+        { productId: 2, quantity: 1, unitPrice: 5.0 },
       ],
     };
     const totalAmount = 10.5 * 2 + 5.0 * 1; // 26

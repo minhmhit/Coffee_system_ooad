@@ -8,10 +8,15 @@ export class OrderService {
 
   async createOrder(data: {
     userId: number;
-    orderItems: { productId: number; quantity: number; price: number }[];
+    orderItems: {
+      productId: number;
+      quantity: number;
+      unitPrice: number;
+      variantId?: number;
+    }[];
   }) {
     const totalAmount = data.orderItems.reduce(
-      (sum, item) => sum + item.price * item.quantity,
+      (sum, item) => sum + item.unitPrice * item.quantity,
       0
     );
     return this.prisma.order.create({
