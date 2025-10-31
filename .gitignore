@@ -1,0 +1,6 @@
+Backend/.env
+Backend/node_modules
+Backend/dist
+
+.github/
+Backend/package-lock.json
