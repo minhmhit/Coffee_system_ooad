@@ -70,11 +70,11 @@ model Supplier {
 }
 
 model Variant {
-  id        Int     @id @default(autoincrement())
-  name      String  // e.g., size, color
-  value     String  // e.g., Large, Red
-  productId Int
-  product   Product @relation(fields: [productId], references: [id])
+  id              Int     @id @default(autoincrement())
+  name            String  // e.g., Large Size, Red Color
+  additionalPrice Decimal @default(0)
+  productId       Int
+  product         Product @relation(fields: [productId], references: [id])
 
   @@map("variants")
 }
