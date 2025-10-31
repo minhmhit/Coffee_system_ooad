@@ -39,7 +39,12 @@ describe("OrderService", () => {
       ],
     };
     const totalAmount = 10.5 * 2 + 5.0 * 1; // 26
-    const mockOrder = { id: 1, ...orderData, totalAmount, status: OrderStatus.PENDING };
+    const mockOrder = {
+      id: 1,
+      ...orderData,
+      totalAmount,
+      status: OrderStatus.PENDING,
+    };
     mockPrismaService.order.create.mockResolvedValue(mockOrder);
 
     const result = await service.createOrder(orderData);
